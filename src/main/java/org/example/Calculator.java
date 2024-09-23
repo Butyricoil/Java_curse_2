@@ -6,6 +6,12 @@ public class Calculator {
         return a + b;
     }
 
+    public int add (String sa, String sb) {
+        int a = Integer.parseInt(sa);
+        int b = Integer.parseInt(sb);
+        return a + b;
+    }
+
     public int subtract(int a, int b) {
         return a - b;
     }

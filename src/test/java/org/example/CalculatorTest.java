@@ -1,48 +1,56 @@
 package org.example;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+
 public class CalculatorTest {
 
+    private Calculator calculator;
+
+    @Before
+    public void setUp() {
+        calculator = new Calculator();
+    }
+
     @Test
-    public void add() {
-        Calculator calculator = new Calculator();
+    public void givenFiveAndTen_whenAdd_thenResultShouldBeFifteen() {
         int expected = 15;
-        int result = calculator.add(10,5);
+        int result = calculator.add(10, 5);
         assertEquals(expected, result);
     }
 
     @Test
-    public void subtract() {
-        Calculator calculator = new Calculator();
+    public void when5() {
+
+    }
+
+    @Test
+    public void givenTenAndFive_whenSubtract_thenResultShouldBeFive() {
         int expected = 5;
         int result = calculator.subtract(10, 5);
         assertEquals(expected, result);
     }
 
     @Test
-    public void multiply() {
-        Calculator calculator = new Calculator();
+    public void givenTenAndThree_whenMultiply_thenResultShouldBeThirty() {
         double expected = 30.0;
         double result = calculator.multiply(10.0, 3.0);
         assertEquals(expected, result, 0.001);
     }
 
     @Test
-    public void divide() {
-        Calculator calculator = new Calculator();
+    public void givenTenAndThree_whenDivide_thenResultShouldBeApproximatelyThree() {
         double expected = 3.0;
         double result = calculator.divide(10.0, 3.0);
-        assertEquals(expected, result, 0.9);
+        assertEquals(expected, result, 0.5);
     }
 
     @Test
-    public void power() {
-        Calculator calculator = new Calculator();
+    public void givenTenAndSix_whenPower_thenResultShouldBeOneMillion() {
         int expected = 1000000;
         int result = calculator.power(10, 6);
         assertEquals(expected, result);
-
     }
 }
