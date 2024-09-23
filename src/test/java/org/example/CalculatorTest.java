@@ -63,6 +63,12 @@ public class CalculatorTest {
         double result = calculator.divide(10.0, 3.0);
         assertEquals(expected, result, 0.5);
     }
+    @Test
+    public void givenTenAndThreeString_whenDivide_thenResultShouldBeApproximatelyThree() {
+        double expected = 3.0;
+        double result = calculator.divide("10.0"," 3.0");
+        assertEquals(expected, result, 0.5);
+    }
 
     @Test
     public void givenTenAndSix_whenPower_thenResultShouldBeOneMillion() {

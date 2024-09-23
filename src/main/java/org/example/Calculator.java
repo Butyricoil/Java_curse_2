@@ -21,7 +21,15 @@ public class Calculator {
     }
 
     public double divide(double a, double b) {
-        return (double) a / b;
+        return  (a / b);
+
+
+    }
+
+    public double divide (String sa, String sb) {
+        double a = Double.parseDouble(sa);
+        double b = Double.parseDouble(sb);
+        return  (a / b);
     }
 
     public int power(int a, int b) {
