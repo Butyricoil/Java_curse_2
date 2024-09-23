@@ -22,8 +22,21 @@ public class CalculatorTest {
     }
 
     @Test
-    public void when5() {
+    public void whgivenFiveAndTenString_whenAdd_thenResultShouldBeFifteenen5() {
+        int expected = 15;
+        int result = calculator.add("10", "5");
+        assertEquals(expected, result);
 
+    }
+    @Test
+    public void whenInputIncorecValueThenThrowExeption() {
+       boolean wasExpected = false;
+        try {
+            calculator.add("ten", "five");
+        } catch (NumberFormatException e) {
+            wasExpected = true;
+        }
+        assertTrue(wasExpected);
     }
 
     @Test
