@@ -39,7 +39,11 @@ public class CalculatorTest {
         assertTrue(wasExpected);
     }
 
-    @Test
+    @Test(expected = NumberFormatException.class)
+    public void whenInputIncorecValueThenThrowExeption2() {
+        calculator.add("dawda", "4");
+    }
+        @Test
     public void givenTenAndFive_whenSubtract_thenResultShouldBeFive() {
         int expected = 5;
         int result = calculator.subtract(10, 5);
