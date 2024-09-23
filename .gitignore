@@ -30,8 +30,8 @@ pom.xml
 /nbdist/
 /.nb-gradle/
 build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+.idea
+pom.xml
 
 ### VS Code ###
 .vscode/
