@@ -52,12 +52,21 @@ public class CarArrayList implements CarList {
 
     @Override
     public void add(Car car) {
-        // Увеличение размера массива, если необходимо
-        if (size >= array.length) {
-            array = Arrays.copyOf(array, array.length * 2);
-        }
+        increaseArray();
         array[size] = car; // Добавление нового автомобиля
         size++; // Увеличение размера списка
+    }
+
+    @Override
+    public void add(Car car, int index) {
+        // Увеличение размера массива, если необходимо
+        increaseArray();
+        // Сдвигаем элементы вправо для освобождения места
+        for (int i = size - 1; i >= index; i--) {
+            array[i + 1] = array[i];
+        }
+        array[index] = car; // Вставляем новый элемент
+        size++; // Увеличиваем размер списка
     }
 
     @Override
@@ -104,6 +113,13 @@ public class CarArrayList implements CarList {
     private void checkIndex(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
+        }
+    }
+
+    private void increaseArray() {
+        // Увеличение размера массива, если необходимо
+        if (size >= array.length) {
+            array = Arrays.copyOf(array, array.length * 2);
         }
     }
 }
