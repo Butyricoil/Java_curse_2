@@ -4,6 +4,7 @@ package Collections.MyArrayList;
 import Collections.MyArrayList.Car;
 import Collections.MyArrayList.CarArrayList;
 import Collections.MyArrayList.CarList;
+import MyLinkedList.CarLinkedList;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -25,7 +26,7 @@ public class CarListTest {
      */
     @Before
     public void setUp() throws Exception {
-        carList = new CarArrayList(); // Создание нового списка автомобилей
+        carList = new CarLinkedList(); // Создание нового списка автомобилей
         for (int i = 0; i < 100; i++) {
             carList.add(new Car("brand" + i, i)); // Добавление 100 автомобилей
         }
