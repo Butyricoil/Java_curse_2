@@ -1,4 +1,4 @@
-package Collections;
+package Collections.MyArrayList;
 
 /**
  * Класс Car представляет собой модель автомобиля с брендом и номером.
