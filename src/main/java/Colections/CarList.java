@@ -1,5 +1,5 @@
 
-package Collections.MyArrayList;
+package Colections;
 
 /**
  * Интерфейс CarList представляет собой абстракцию списка автомобилей.

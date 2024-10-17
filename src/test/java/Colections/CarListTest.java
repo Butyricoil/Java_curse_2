@@ -1,10 +1,6 @@
 
-package Collections.MyArrayList;
+package Colections;
 
-import Collections.MyArrayList.Car;
-import Collections.MyArrayList.CarArrayList;
-import Collections.MyArrayList.CarList;
-import MyLinkedList.CarLinkedList;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -1,8 +1,5 @@
 
-package MyLinkedList;
-
-import Collections.MyArrayList.Car;
-import Collections.MyArrayList.CarList;
+package Colections;
 
 public class CarLinkedList implements CarList {
 

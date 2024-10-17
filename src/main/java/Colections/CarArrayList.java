@@ -1,5 +1,5 @@
 
-package Collections.MyArrayList;
+package Colections;
 
 import java.util.Arrays;
 
