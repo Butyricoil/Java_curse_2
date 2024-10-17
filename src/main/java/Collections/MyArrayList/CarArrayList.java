@@ -21,30 +21,6 @@ public class CarArrayList implements CarList {
     }
 
     @Override
-    public int hashCode() {
-        // Переопределение метода hashCode, если потребуется
-        return super.hashCode();
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        // Переопределение метода equals для сравнения объектов CarArrayList
-        return super.equals(obj);
-    }
-
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        // Переопределение метода clone для создания копии CarArrayList
-        return super.clone();
-    }
-
-    @Override
-    public String toString() {
-        // Переопределение метода toString для получения строкового представления CarArrayList
-        return super.toString();
-    }
-
-    @Override
     public Car get(int index) {
         checkIndex(index); // Проверка на допустимость индекса
         return array[index]; // Возврат автомобиля по индексу
