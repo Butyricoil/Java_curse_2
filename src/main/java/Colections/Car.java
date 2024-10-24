@@ -1,5 +1,7 @@
 package Colections;
 
+import java.util.Objects;
+
 /**
  * Класс Car представляет собой модель автомобиля с брендом и номером.
  * Он инкапсулирует данные о марке и номере автомобиля.
@@ -42,19 +44,15 @@ public class Car {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof Car) {
-            Car car = (Car) obj;
-            return car.brand.equals(this.brand) && car.number == this.number;
-        } else {
-            return false;
-        }
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return number == car.number && Objects.equals(brand, car.brand);
     }
-
 
     @Override
     public int hashCode() {
-        return brand.hashCode() + number;
+        return Objects.hash(brand, number);
     }
-
 }
