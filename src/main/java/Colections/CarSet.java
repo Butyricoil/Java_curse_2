@@ -1,6 +1,6 @@
 package Colections;
 
-public interface СarSet {
+public interface CarSet {
 
     boolean add (Car car);
     boolean remove (Car car);

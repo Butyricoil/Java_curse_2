@@ -1,16 +1,22 @@
 package Colections;
 
-public class CarHashSet implements СarSet {
+public class CarHashSet implements CarSet {
     private static final int INITIAL_CAPACITY = 16;
+    private static final double LOAD_FACTOR = 0.75f;
     private int size = 0;
     private Entry[] array = new Entry[INITIAL_CAPACITY];
 
-
     @Override
     public boolean add(Car car) {
-        return add(car, array);
+        if (size >= array.length * LOAD_FACTOR) {
+            increaseArray();
+        }
+        boolean added = add(car, array);
+        if (added) {
+            size++;
+        }
+        return added;
     }
-
 
     @Override
     public boolean remove(Car car) {
@@ -25,79 +31,72 @@ public class CarHashSet implements СarSet {
             size--;
             return true;
         }
-        while (last != null && !last.value.equals(car)) {
-
+        while (last != null) {
             if (last.value.equals(car)) {
                 secondLast.next = last.next;
                 size--;
                 return true;
-            } else {
-                secondLast = last;
-                last = last.next;
             }
-            return false;
+            secondLast = last;
+            last = last.next;
         }
+        return false;
     }
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
-
 
     @Override
     public void clear() {
-
+        array = new Entry[INITIAL_CAPACITY];
+        size = 0;
     }
 
-    private void increaseArray () {
+    private void increaseArray() {
         Entry[] newArray = new Entry[array.length * 2];
         for (Entry entry : array) {
             Entry existingElement = entry;
-            while (entry!= null) {
-               add(existingElement.value, newArray);
-               existingElement = existingElement.next;
+            while (existingElement != null) {
+                add(existingElement.value, newArray);
+                existingElement = existingElement.next;
             }
         }
         array = newArray;
     }
 
-    boolean add (Car car, Entry[] dst) {
+    boolean add(Car car, Entry[] dst) {
         int position = getElementPosition(car, dst.length);
         if (dst[position] == null) {
             dst[position] = new Entry(car, null);
-            size++;
             return true;
         } else {
-            Entry existingEelement = dst[position];
+            Entry existingElement = dst[position];
             while (true) {
-                if (existingEelement.value.equals(car)) {
+                if (existingElement.value.equals(car)) {
                     return false;
-                } else if (existingEelement.next == null) {
-                    existingEelement.next = new Entry(car, null);
-                    size++;
+                } else if (existingElement.next == null) {
+                    existingElement.next = new Entry(car, null);
                     return true;
                 } else {
-                    existingEelement = existingEelement.next;
+                    existingElement = existingElement.next;
                 }
             }
         }
     }
 
-
     private int getElementPosition(Car car, int arrayLength) {
         return Math.abs(car.hashCode()) % arrayLength;
     }
-
 
     private static class Entry {
         private Car value;
         private Entry next;
 
         public Entry(Car value, Entry next) {
-            this.next = next;
             this.value = value;
+            this.next = next;
         }
     }
-
 }
