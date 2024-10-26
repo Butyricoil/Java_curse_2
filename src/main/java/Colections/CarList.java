@@ -5,7 +5,7 @@ package Colections;
  * Интерфейс CarList представляет собой абстракцию списка автомобилей.
  * Он определяет основные операции, которые могут быть выполнены с коллекцией автомобилей.
  */
-public interface CarList extends CarColections{
+public interface CarList extends CarColections {
 
     /**
      * Получает автомобиль по указанному индексу.
@@ -60,4 +60,12 @@ public interface CarList extends CarColections{
      * Очищает список, удаляя все автомобили.
      */
     void clear();
+
+    /**
+     * Проверяет, содержит ли список указанный автомобиль.
+     *
+     * @param car автомобиль, который необходимо проверить на содержание.
+     */
+    boolean contains(Car car);
+
 }

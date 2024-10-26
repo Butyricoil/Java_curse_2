@@ -57,15 +57,12 @@ public class CarLinkedList implements CarList {
 
     @Override
     public boolean remove(Car car) {
-        // Удаление элемента по значению
-        Node node = first; // Начинаем с первого узла
-        while (node != null) {
-            if (node.value.equals(car)) {
-                return removeAt(getIndex(node)); // Удаляем узел, если найдено совпадение
-            }
-            node = node.next; // Переход к следующему узлу
+        int index = findElement(car);
+        if (index != -1) {
+            removeAt(index); // Удаляем узел по индексу
+            return true;
         }
-        return false; // Если элемент не найден
+        return false; // Если автомобиль не найден
     }
 
     private int getIndex(Node node) {
@@ -119,6 +116,23 @@ public class CarLinkedList implements CarList {
         size = 0; // Обнуляем размер
     }
 
+    @Override
+    public boolean contains(Car car) {
+        int index = findElement(car);
+        return index != -1;
+    }
+
+    private int findElement(Car car) {
+        Node node = first;
+        for (int i = 0; i < size; i++) {
+            if (node.value.equals(car)) {
+                return i;
+            }
+            node = node.next;
+        }
+        return -1;
+    }
+
     private Node getNode(int index) {
         // Получение узла по индексу
         if (index < 0 || index >= size) {
@@ -143,4 +157,5 @@ public class CarLinkedList implements CarList {
             this.next = next; // Инициализация указателя на следующий узел
         }
     }
+
 }

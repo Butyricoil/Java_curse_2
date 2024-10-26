@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
  * Класс CarListTest содержит набор тестов для проверки функциональности класса CarArrayList,
  * реализующего интерфейс CarList.
  */
-public class CarListTest {
+public class CarArrayListTest {
 
     private CarList carList; // Переменная для хранения списка автомобилей
 
@@ -116,7 +116,7 @@ public class CarListTest {
      * Ожидается, что после вставки автомобиль с брендом "BMW" будет находиться в позиции 50.
      */
     @Test
-       public void insertIntoMiddlePosition() {
+    public void insertIntoMiddlePosition() {
         Car car = new Car("BMW", 1); // Создание нового автомобиля
         carList.add(car, 50); // Вставка автомобиля в середину списка (позиция 50)
         Car carFromList = carList.get(50); // Получение автомобиля из позиции 50

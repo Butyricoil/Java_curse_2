@@ -54,6 +54,32 @@ public class CarHashSet implements CarSet {
         size = 0;
     }
 
+    /**
+     * Проверяет, находится ли автомобиль в наборе.
+     *
+     * @param car автомобиль для поиска
+     * @return true, если автомобиль найден, иначе false
+     */
+    @Override
+    public boolean contains(Car car) {
+        int position = getElementPosition(car, array.length);
+        if (array[position] == null) {
+            return false;
+        }
+        Entry secondLast = array[position];
+        Entry last = secondLast.next;
+        if (secondLast.value.equals(car)) {
+            return true;
+        }
+        while (last != null) {
+            if (last.value.equals(car)) {
+                return true;
+            }
+            last = last.next;
+        }
+        return false;
+    }
+
     private void increaseArray() {
         Entry[] newArray = new Entry[array.length * 2];
         for (Entry entry : array) {
