@@ -14,7 +14,7 @@ public class CarLinkedList implements CarList {
     }
 
     @Override
-    public void add(Car car) {
+    public boolean add(Car car) {
         // Добавление нового элемента в конец списка
         Node newNode = new Node(last, car, null); // Создаем новый узел
         if (last != null) {
@@ -24,17 +24,18 @@ public class CarLinkedList implements CarList {
         }
         last = newNode; // Обновляем указатель на последний узел
         size++; // Увеличиваем размер списка
+        return true;
     }
 
     @Override
-    public void add(Car car, int index) {
+    public boolean add(Car car, int index) {
         // Добавление нового элемента по указанному индексу
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException(); // Проверка на допустимый индекс
         }
         if (index == size) {
             add(car); // Если индекс равен размеру, добавляем в конец
-            return;
+            return true;
         }
 
         // Получаем узлы перед и после позиции вставки
@@ -51,6 +52,7 @@ public class CarLinkedList implements CarList {
         nodeNext.previos = newNode; // Устанавливаем указатель previos у следующего узла
 
         size++; // Увеличиваем размер списка
+        return true;
     }
 
     @Override

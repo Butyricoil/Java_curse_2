@@ -27,14 +27,15 @@ public class CarArrayList implements CarList {
     }
 
     @Override
-    public void add(Car car) {
+    public boolean add(Car car) {
         increaseArray();
         array[size] = car; // Добавление нового автомобиля
-        size++; // Увеличение размера списка
+        size++;
+        return true;// Увеличение размера списка
     }
 
     @Override
-    public void add(Car car, int index) {
+    public boolean add(Car car, int index) {
         // Увеличение размера массива, если необходимо
         increaseArray();
         // Сдвигаем элементы вправо для освобождения места
@@ -43,6 +44,7 @@ public class CarArrayList implements CarList {
         }
         array[index] = car; // Вставляем новый элемент
         size++; // Увеличиваем размер списка
+        return true;
     }
 
     @Override

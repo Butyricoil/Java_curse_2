@@ -22,7 +22,8 @@ public class CarListTest {
      */
     @Before
     public void setUp() throws Exception {
-        carList = new CarLinkedList(); // Создание нового списка автомобилей
+//        carList = new CarLinkedList(); // Создание нового списка автомобилей
+        carList = new CarArrayList();// Создание нового списка автомобилей
         for (int i = 0; i < 100; i++) {
             carList.add(new Car("brand" + i, i)); // Добавление 100 автомобилей
         }

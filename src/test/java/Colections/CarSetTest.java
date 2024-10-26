@@ -1,7 +1,5 @@
-package Collections;
+package Colections;
 
-import Colections.Car;
-import Colections.CarHashSet;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -78,7 +76,7 @@ public class CarSetTest {
         carSet.clear();
         assertEquals(0, carSet.size());
 
-        // Проверка что множество пустое
+        // Проверка, что множество пустое
         assertFalse(carSet.remove(car1));
     }
 }

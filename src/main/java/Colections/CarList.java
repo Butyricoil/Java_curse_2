@@ -5,7 +5,7 @@ package Colections;
  * Интерфейс CarList представляет собой абстракцию списка автомобилей.
  * Он определяет основные операции, которые могут быть выполнены с коллекцией автомобилей.
  */
-public interface CarList {
+public interface CarList extends CarColections{
 
     /**
      * Получает автомобиль по указанному индексу.
@@ -21,7 +21,7 @@ public interface CarList {
      *
      * @param car автомобиль, который необходимо добавить.
      */
-    void add(Car car);
+    boolean add(Car car);
 
 
     /**
@@ -29,7 +29,7 @@ public interface CarList {
      *
      * @param car автомобиль, который необходимо добавить.
      */
-    void add(Car car, int index);
+    boolean add(Car car, int index);
 
 
     /**
