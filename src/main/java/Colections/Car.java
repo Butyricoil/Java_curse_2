@@ -6,7 +6,7 @@ import java.util.Objects;
  * Класс Car представляет собой модель автомобиля с брендом и номером.
  * Он инкапсулирует данные о марке и номере автомобиля.
  */
-public class Car implements Comparable<Car> {
+public class Car  {
     private String brand; // Бренд автомобиля
     private int number;   // Номер автомобиля
 
@@ -56,10 +56,6 @@ public class Car implements Comparable<Car> {
         return Objects.hash(brand, number);
     }
 
-    @Override
-    public int compareTo(Car o) {
-       return brand.compareTo(o.brand);
-    }
 
     @Override
     public String toString() {
