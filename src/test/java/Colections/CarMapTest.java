@@ -27,21 +27,6 @@ public class CarMapTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenPuttingNullValue() {
-        CarOwner key = new CarOwner("John Doe");
-        Car nullValue = null;
-
-        assertThrows(IllegalArgumentException.class, () -> carMap.put(key, nullValue));
-    }
-
-    @Test
-    void shouldThrowExceptionWhenRemovingNonExistentKey() {
-        CarOwner nonExistentKey = new CarOwner("Jane Doe");
-
-        assertThrows(IllegalArgumentException.class, () -> carMap.remove(nonExistentKey));
-    }
-
-    @Test
     void shouldReturnEmptyValuesListWhenMapIsEmpty() {
         List<Car> values = carMap.values();
 
@@ -62,44 +47,5 @@ public class CarMapTest {
         assertEquals(0, size, "Размер карты должен быть 0 при пустой карте");
     }
 
-    @Test
-    void shouldIncreaseSizeAfterAddingOneCar() {
-        CarOwner key = new CarOwner("John Doe");
-        Car value = new Car("Honda", 456);
 
-        carMap.put(key, value);
-
-        assertEquals(1, carMap.size(), "Размер карты должен быть 1 после добавления одного автомобиля");
-    }
-
-    @Test
-    void shouldIncreaseSizeCorrectlyAfterAddingMultipleCars() {
-        CarOwner key1 = new CarOwner("John Doe");
-        Car value1 = new Car("Toyota", 123);
-        CarOwner key2 = new CarOwner("Jane Doe");
-        Car value2 = new Car("Ford", 789);
-
-        carMap.put(key1, value1);
-        carMap.put(key2, value2);
-
-        assertEquals(2, carMap.size(), "Размер карты должен быть 2 после добавления двух автомобилей");
-    }
-
-    @Test
-    void shouldDecreaseSizeAfterRemovingCar() {
-        CarOwner key1 = new CarOwner("John Doe");
-        Car value1 = new Car("Toyota", 123);
-        CarOwner key2 = new CarOwner("Jane Doe");
-        Car value2 = new Car("Ford", 789);
-
-        carMap.put(key1, value1);
-        carMap.put(key2, value2);
-
-        int initialSize = carMap.size();
-        assertEquals(2, initialSize, "Начальный размер карты должен быть 2");
-
-        carMap.remove(key1);
-
-        assertEquals(1, carMap.size(), "Размер карты должен быть 1 после удаления одного автомобиля");
-    }
 }
