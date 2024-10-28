@@ -1,5 +1,9 @@
 package Colections;
 
+import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.function.Consumer;
+
 public class CarHashSet implements CarSet {
     private static final int INITIAL_CAPACITY = 16;
     private static final double LOAD_FACTOR = 0.75f;
@@ -79,6 +83,42 @@ public class CarHashSet implements CarSet {
         }
         return false;
     }
+
+    @Override
+    public Iterator<Car> iterator() {
+        return new Iterator<Car>() {
+
+            int index = 0;
+            int arrayIndex = 0;
+            Entry entry;
+
+            @Override
+            public boolean hasNext() {
+                return index < size;
+            }
+            @Override
+            public Car next() {
+                while (array[arrayIndex] == null) {
+                    arrayIndex ++;
+                }
+                if (entry == null) {
+                    entry = array[arrayIndex];
+                }
+                Car reslt = entry.value;
+                entry = entry.next;
+                if (entry == null) {
+                    arrayIndex++;
+                }
+                index++;
+                return reslt;
+            }
+
+        };
+
+
+
+    }
+
 
     private void increaseArray() {
         Entry[] newArray = new Entry[array.length * 2];

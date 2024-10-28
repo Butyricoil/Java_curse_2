@@ -1,6 +1,10 @@
 
 package Colections;
 
+import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.function.Consumer;
+
 public class CarLinkedList implements CarList {
 
     private Node first; // Указатель на первый узел списка
@@ -120,6 +124,36 @@ public class CarLinkedList implements CarList {
     public boolean contains(Car car) {
         int index = findElement(car);
         return index != -1;
+    }
+
+    @Override
+    public Iterator<Car> iterator() {
+        return new Iterator<Car>() {
+
+            Node node = first; // начинаем с первой переменной
+
+            @Override
+            public boolean hasNext() { // если что то есть то true
+                return node != null;
+            }
+
+            @Override
+            public Car next() { // следуйщие элементы
+                Car car = node.value;
+                node = node.next;
+                return car;
+            }
+        };
+    }
+
+    @Override
+    public void forEach(Consumer<? super Car> action) {
+        CarList.super.forEach(action);
+    }
+
+    @Override
+    public Spliterator<Car> spliterator() {
+        return CarList.super.spliterator();
     }
 
     private int findElement(Car car) {

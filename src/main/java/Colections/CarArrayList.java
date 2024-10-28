@@ -2,6 +2,9 @@
 package Colections;
 
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.function.Consumer;
 
 /**
  * Класс CarArrayList представляет собой реализацию списка автомобилей с использованием массива.
@@ -93,6 +96,35 @@ public class CarArrayList implements CarList {
         size = 0;
     }
 
+    @Override
+    public Iterator<Car> iterator() {
+        return new Iterator<Car>() {
+            int index = 0;
+
+            @Override
+            public boolean hasNext() {
+                return index < size;
+            }
+
+            @Override
+            public Car next() {
+                return array[index++];
+            }
+        };
+    }
+
+    @Override
+    public void forEach(Consumer<? super Car> action) {
+        CarList.super.forEach(action);
+    }
+
+    @Override
+    public Spliterator<Car> spliterator() {
+        return CarList.super.spliterator();
+    }
+
+
+
     /**
      * Проверяет допустимость индекса.
      *
@@ -111,4 +143,5 @@ public class CarArrayList implements CarList {
             array = Arrays.copyOf(array, array.length * 2);
         }
     }
+
 }

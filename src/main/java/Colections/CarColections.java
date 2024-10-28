@@ -1,6 +1,6 @@
 package Colections;
 
-public interface CarColections {
+public interface CarColections extends Iterable<Car> {
 
     boolean add (Car car);
     boolean remove (Car car);
