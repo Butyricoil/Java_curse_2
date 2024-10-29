@@ -1,17 +1,17 @@
 package Generic;
 
-public class Box {
-    private Object object;
+public class Box <T> {
+    private T object;
 
-    public void setObject(Object object) {
-        this.object = object;
+    public T getObject() {
+        return object;
     }
 
-        public Box(Object object) {
-        this.object = object;
+    public T setObject(T object) {
+        return  object;
     }
 
-    public int getObject() {
-        return (int) object;
+    public Box(T object) {
+        this.object = object;
     }
 }
