@@ -43,9 +43,7 @@ public class CarOwner {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CarOwner carOwner = (CarOwner) o;
-        return id == carOwner.id &&
-                Objects.equals(name, carOwner.name) &&
-                Objects.equals(lastName, carOwner.lastName);
+        return id == carOwner.id && Objects.equals(name, carOwner.name) && Objects.equals(lastName, carOwner.lastName);
     }
 
     @Override
